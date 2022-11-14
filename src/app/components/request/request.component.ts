@@ -14,7 +14,7 @@ export class RequestComponent implements OnInit {
   request5: any = { requestId: 5, categoryId: 1, wallet: 'tskdckş898j', reasonRequest: 'destek neden', collectedAid: 231 }
 
   requests = [this.request1, this.request2, this.request3, this.request4, this.request5]
-  constructor() { }
+  constructor() {  }
 
   ngOnInit(): void { 
   }
