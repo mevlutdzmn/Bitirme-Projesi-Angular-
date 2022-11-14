@@ -16,7 +16,7 @@ export class RequestComponent implements OnInit {
   requests = [this.request1, this.request2, this.request3, this.request4, this.request5]
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
 }
