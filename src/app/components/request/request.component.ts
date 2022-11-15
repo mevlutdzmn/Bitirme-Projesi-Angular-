@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Request } from 'src/app/models/request';
-import {HttpClient} from '@angular/common/http'
+
 import { RequestResponseModel } from 'src/app/models/requestResponseModel';
+import { RequestService } from 'src/app/services/request.service';
 
 @Component({
   selector: 'app-request',
@@ -11,20 +12,20 @@ import { RequestResponseModel } from 'src/app/models/requestResponseModel';
 export class RequestComponent implements OnInit {
 
   requests:Request[] = [];
-  apiUrl="https://localhost:44326/api/requests/getall"
+  dataLoadded=false;
+ 
   
-  constructor(private httpClient:HttpClient) {  }
+  constructor(private requestService:RequestService) {  }
 
   ngOnInit(): void { 
     this.getRequests()
     
   }
   getRequests(): void{
-    this.httpClient.get<RequestResponseModel>(this.apiUrl).subscribe(response=>{
+    this.requestService.getRequests().subscribe(response=>{
       this.requests=response.data
-   
-  });
-  
+      this.dataLoadded=true;
+    });
   }
 
 
