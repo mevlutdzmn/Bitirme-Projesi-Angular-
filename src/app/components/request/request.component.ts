@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Request } from 'src/app/models/request';
+import {HttpClient} from '@angular/common/http'
+import { RequestResponseModel } from 'src/app/models/requestResponseModel';
 
 @Component({
   selector: 'app-request',
@@ -7,17 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestComponent implements OnInit {
 
-  request1: any = { requestId: 1, categoryId: 1, wallet: 'tskdckşakerj', reasonRequest: 'parasal neden', collectedAid: 231 }
-  request2: any = { requestId: 2, categoryId: 1, wallet: 'tskdckşakerj', reasonRequest: 'sma neden', collectedAid: 231 }
-  request3: any = { requestId: 3, categoryId: 1, wallet: 'tsrgdakerj', reasonRequest: 'eğitim neden', collectedAid: 231 }
-  request4: any = { requestId: 4, categoryId: 1, wallet: '45şakerj', reasonRequest: 'öyle işte neden', collectedAid: 231 }
-  request5: any = { requestId: 5, categoryId: 1, wallet: 'tskdckş898j', reasonRequest: 'destek neden', collectedAid: 231 }
-  request6: any = { requestId: 6, categoryId: 1, wallet: 'tskdcsfkş898j', reasonRequest: 'deek neden', collectedAid: 231 }
-
-  requests = [this.request1, this.request2, this.request3, this.request4, this.request5]
-  constructor() {  }
+  requests:Request[] = [];
+  apiUrl="https://localhost:44326/api/requests/getall"
+  
+  constructor(private httpClient:HttpClient) {  }
 
   ngOnInit(): void { 
+    this.getRequests()
+    
   }
+  getRequests(): void{
+    this.httpClient.get<RequestResponseModel>(this.apiUrl).subscribe(response=>{
+      this.requests=response.data
+   
+  });
+  
+  }
+
 
 }

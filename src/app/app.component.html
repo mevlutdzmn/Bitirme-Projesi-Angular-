@@ -1,12 +1,18 @@
-<!-- Welcome to {{title}}
-Hello {{user}}
-{{request1.reasonRequest}}
+<div class="container">
+  <app-navi></app-navi>
+  <div class="row">
+    <div class="col-md-3">
+      <app-category></app-category>
+    </div>
+    <div class="col-md-9">
+      <app-request></app-request>
+    </div>
+    
+    
+  </div>
+  
+  
+  <router-outlet></router-outlet>
+</div>
 
-<ul>
-  <li *ngFor="let request of requests">{{request.reasonRequest}}</li>
-</ul> -->
-<app-navi></app-navi>
-<app-category></app-category>
-<app-request></app-request>
 
-<router-outlet></router-outlet>
