@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Request } from 'src/app/models/request';
 import { RequestService } from 'src/app/services/request.service';
 
+
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
@@ -12,6 +13,7 @@ export class RequestComponent implements OnInit {
 
   requests:Request[] = [];
   dataLoadded=false;
+  filterText="";
  
   
   constructor(private requestService:RequestService,private activatedRoute:ActivatedRoute) {  }
@@ -38,6 +40,9 @@ export class RequestComponent implements OnInit {
       this.dataLoadded=true;
     });
   }
+  // addToCart(request:Request){
+  //   console.log(request)
+  // }
   
 
 

@@ -1,6 +1,14 @@
 <div *ngIf="dataLoadded==false" class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
-  </div>
+</div>
+<div class="mb-3">
+    <label for="filterText" class="form-label">Talep ara</label>
+    <input type="text" class="form-control" [(ngModel)]="filterText" id="filterText"
+        placeholder="arama ifadesi giriniz...">
+</div>
+<div *ngIf="filterText" class="alert alert-primary">
+    {{filterText}} aradınız
+</div>
 <table *ngIf="dataLoadded!=false" class="table">
     <thead>
         <tr>
@@ -9,14 +17,18 @@
             <th>cüzdan</th>
             <th>talep sebebi</th>
             <th>toplanan yardım</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let request of requests">
-        <td>{{request.requestId}}</td>
-        <td>{{request.categoryId}}</td>
-        <td>{{request.wallet}}</td>
-        <td>{{request.reasonRequest}}</td>
-        <td>{{request.collectedAid}}</td>
-        
-    </tr>
+    <tbody>
+        <tr *ngFor="let request of requests |filterPipe:filterText">
+            <td>{{request.requestId}}</td>
+            <td>{{request.categoryId}}</td>
+            <td>{{request.wallet}}</td>
+            <td>{{request.reasonRequest|uppercase}}</td>
+            <td>{{request.collectedAid |currency}}</td>
+            <td><button  class="btn btn-success"> seç </button></td>
+
+        </tr>
+    </tbody>
 </table>
