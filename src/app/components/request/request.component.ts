@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Request } from 'src/app/models/request';
-
 import { RequestService } from 'src/app/services/request.service';
 
 @Component({
@@ -14,10 +14,16 @@ export class RequestComponent implements OnInit {
   dataLoadded=false;
  
   
-  constructor(private requestService:RequestService) {  }
+  constructor(private requestService:RequestService,private activatedRoute:ActivatedRoute) {  }
 
   ngOnInit(): void { 
-    this.getRequests()
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["categoryId"]){
+        this.getRequestsByCategory(params["categoryId"])
+      }else{
+        this.getRequests();
+      }
+    })
     
   }
   getRequests(): void{
@@ -26,6 +32,14 @@ export class RequestComponent implements OnInit {
       this.dataLoadded=true;
     });
   }
+  getRequestsByCategory(categoryId:number): void{
+    this.requestService.getRequestsByCategory(categoryId).subscribe(response=>{
+      this.requests=response.data
+      this.dataLoadded=true;
+    });
+  }
+  
+
 
 
 }

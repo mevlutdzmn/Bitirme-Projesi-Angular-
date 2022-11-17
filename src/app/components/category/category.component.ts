@@ -10,18 +10,40 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryComponent implements OnInit {
 
-  categories:Category[]=[];
+  categories: Category[] = [];
 
-  constructor(private categoryService:CategoryService) { }
+  currentCategory: Category;
+
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.getCategories();
   }
-  getCategories(): void{
-    this.categoryService.getCategories().subscribe(response=>{
-      this.categories=response.data
-      
+  getCategories(): void {
+    this.categoryService.getCategories().subscribe(response => {
+      this.categories = response.data
+
+
     });
+  }
+
+  setCurrentCategory(category: Category) {
+    this.currentCategory = category;
+  }
+  getCurrentCategoryClass(category: Category) {
+    if (category == this.currentCategory) {
+      //ilgili kategory benim currentkategorime eşitse onun css classını değiştir
+      return "list-group-item active";
+    } else {
+      return "list-group-item ";
+    }
+  }
+  getAllCategoryClass(){
+    if(!this.currentCategory){
+      return "list-group-item active";
+    } else {
+      return "list-group-item ";
+    }
   }
 
 }

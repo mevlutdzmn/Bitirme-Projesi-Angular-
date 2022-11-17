@@ -1,7 +1,10 @@
-<ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-  </ul>
+<ul  class="list-group">
+  <li routerLink="/requests" [class]="getAllCategoryClass()"  > Kategoriler </li>
+  <li *ngFor="let  category of categories" 
+  routerLink='/requests/category/{{category.categoryId}}'
+  (click)="setCurrentCategory(category)" 
+  [class]="getCurrentCategoryClass(category)">
+    {{category.categoryName}}</li>
+
+</ul>
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}} seçtiniz</h5>
