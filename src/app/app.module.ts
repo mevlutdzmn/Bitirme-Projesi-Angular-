@@ -8,8 +8,9 @@ import { RequestComponent } from './components/request/request.component';
 import { CategoryComponent } from './components/category/category.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { RequestAddComponent } from './components/request-add/request-add.component';
 
 
 
@@ -21,6 +22,7 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     NaviComponent,
     VatAddedPipe,
     FilterPipePipe,
+    RequestAddComponent,
 
   ],
   imports: [
@@ -28,6 +30,7 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
     //ToastrModule.forRoot({
    //   positionClass:"toast-bottom-right"
     //})

@@ -1,0 +1,47 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Talep ekle</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="reasonRequest">Talep nedeni</label>
+                    <form   [formGroup]="requestAddForm" >
+                        <div class="form-group">
+                            <input type="text" id="reasonRequest" formControlName="reasonRequest" class="form-control"
+                                placeholder="Talep nedeni" />
+                        </div>
+                    </form>
+                </div>
+                <div class="mb-3">
+                    <label for="categoryId">kategori</label>
+                    <form [formGroup]="requestAddForm">
+                        <div class="form-group">
+                            <input type="number" id="categoryId" formControlName="categoryId" class="form-control"
+                                placeholder="kategori" />
+                        </div>
+                    </form>
+                </div>
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="wallet">metamask cüzdanı</label>
+                        <form [formGroup]="requestAddForm">
+                            <div class="form-group">
+                                <input type="text" id="wallet" formControlName="wallet" class="form-control"
+                                    placeholder="cüzdan adresi" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">ekle</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
