@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Request } from 'src/app/models/request';
 import { RequestService } from 'src/app/services/request.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class RequestComponent implements OnInit {
   filterText="";
  
   
-  constructor(private requestService:RequestService,private activatedRoute:ActivatedRoute) {  }
+  constructor(private requestService:RequestService,
+    private activatedRoute:ActivatedRoute,
+    private toastrService:ToastrService,) {  }
 
   ngOnInit(): void { 
     this.activatedRoute.params.subscribe(params=>{
