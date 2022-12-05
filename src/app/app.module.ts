@@ -16,6 +16,8 @@ import { RequestAddComponent } from './components/request-add/request-add.compon
 import {ToastrModule} from "ngx-toastr";
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RequestUpdateComponent } from './components/request-update/request-update.component';
+import { RequestDeleteComponent } from './components/request-delete/request-delete.component';
 
 
 
@@ -30,6 +32,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     FilterPipePipe,
     RequestAddComponent,
     LoginComponent,
+    RequestUpdateComponent,
+    RequestDeleteComponent,
 
 
   ],
