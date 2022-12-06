@@ -1,0 +1,67 @@
+<div class="content">
+    <div class="col-md-12 mt-4" >
+      <div class="card form-card " >
+        <div class="">
+          <h5 class="title add-title"><i class="fa-sharp fa-solid fa-user-plus"></i> Kullanıcı Ekle</h5>
+        <hr>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userAddForm">
+            <div class="mb-3">
+              <label for="firstName">Kullanıcı Adı</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="firstName"
+                  formControlName="firstName"
+                  class="form-control"
+                  placeholder="Kullanıcı Adı"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="lastName">Kullanıcı Soyadı</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="lastName"
+                  formControlName="lastName"
+                  class="form-control"
+                  placeholder="Kullanıcı Soyadı"
+                />
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="email">Kullanıcı Email</label>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Kullanıcı Email"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password">Kullanıcı Şifre</label>
+              <div class="form-group">
+                <input
+                  type="password"
+                  id="password"
+                  formControlName="password"
+                  class="form-control"
+                  placeholder="Kullanıcı Şifre"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="text-end">
+           <button class="btn btn-add mx-3" (click)="add()">Ekle</button>
+          <button class="btn btn-back " routerLink="/">Geri</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,23 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+
+<div *ngIf="dataLoaded" class="card mt-3" >
+  <div class="row g-0">
+    
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{userDetail.firstName}} {{userDetail.lastName}}</h5>
+      
+        <p class="card-text ">{{userDetail.email}}</p>
+        <button class=" btn btn-update  " routerLink="/users/update/{{userDetail.id}}" >
+          Güncelle
+        </button>
+        <button class=" btn btn-update mx-3 " routerLink="/users/user/userchangepassword/{{userDetail.id}}">
+         Şifreni Değiştir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

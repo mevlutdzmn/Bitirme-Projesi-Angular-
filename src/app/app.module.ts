@@ -18,6 +18,12 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RequestUpdateComponent } from './components/request-update/request-update.component';
 import { RequestDeleteComponent } from './components/request-delete/request-delete.component';
+import { UserComponent } from './components/user/user.component';
+import { UserAddComponent } from './components/user-add/user-add.component';
+import { UserDeleteComponent } from './components/user-delete/user-delete.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { UserChangepasswordComponent } from './components/user-changepassword/user-changepassword.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -34,6 +40,12 @@ import { RequestDeleteComponent } from './components/request-delete/request-dele
     LoginComponent,
     RequestUpdateComponent,
     RequestDeleteComponent,
+    UserComponent,
+    UserAddComponent,
+    UserDeleteComponent,
+    UserUpdateComponent,
+    UserChangepasswordComponent,
+    RegisterComponent,
 
 
   ],

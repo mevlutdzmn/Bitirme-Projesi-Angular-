@@ -1,0 +1,67 @@
+<body >
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-5 ">
+    <main class="form-signup  ">
+       <form [formGroup]="registerForm" id="userForm">
+        <h3 class=" mb-3 "><b>  ÜYE OL <i class="fa-regular fa-face-smile"></i>
+       </b></h3>
+      
+        <div class="form-floating">
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            id="firstName"
+            placeholder="first Name"
+          />
+          <label for="firstName">Adınız</label>
+        </div>
+  
+        <div class="form-floating ">
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+            id="lastName"
+            placeholder="lastName"
+          />
+          <label for="lastName">Soyadınız</label>
+        </div>
+  
+        <div class="form-floating ">
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            id="email"
+            placeholder="name@example.com"
+          />
+          <label for="email">E-posta</label>
+        </div>
+  
+        <div class="form-floating ">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            id="password"
+            placeholder="password"
+          />
+          <label for="password">Parola</label>
+        </div>
+  
+        <button
+          class=" btn w-100 btn-register"
+          type="submit"
+          (click)="register()"
+          [disabled]="!registerForm.valid"
+        >
+          Üye ol
+        </button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2021–2022</p>
+      </form>
+    </main> 
+  </div> 
+  </div>
+  </body>

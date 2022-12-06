@@ -1,0 +1,106 @@
+<div class="content">
+    <div class="col-md-6">
+      <div class="card form-card">
+        <div class="">
+          <h5 class="title update-title">
+            <i class="fa-solid fa-pen-nib"></i> <b>Güncelle</b></h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userUpdateForm">
+            <!-- <div class="mb-3" hidden>
+              <label for="userId">Eğitmen Adı</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="userId"
+                  formControlName="userId"
+                  class="form-control"
+                  placeholder="Eğitmen Adı"
+                />
+              </div>
+            </div> -->
+            <div class="mb-3">
+              <label for="firstName">Kullanıcı Adı</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="firstName"
+                  formControlName="firstName"
+                  class="form-control"
+                  placeholder="Kullanıcı adı"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="lastName">Kullanıcı soyadı</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="lastName"
+                  formControlName="lastName"
+                  class="form-control"
+                  placeholder="Kullanıcı Soyadı"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email">Kullanıcı email</label>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Kullanıcı email"
+                />
+              </div>
+            </div>
+  
+            <div class="mb-3" hidden>
+              <label for="passwordHash">Password Hash</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="passwordHash"
+                  formControlName="passwordHash"
+                  class="form-control"
+                  placeholder="Password Hash"
+                />
+              </div>
+            </div>
+            <div class="mb-3" hidden>
+              <label for="passwordSalt">Password Salt</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="passwordSalt"
+                  formControlName="passwordSalt"
+                  class="form-control"
+                  placeholder="Password Salt"
+                />
+              </div>
+            </div>
+            <div class="mb-3" hidden>
+              <label for="status">Kullanıcı Şifre</label>
+              <div class="form-group">
+                <input
+                  type="password"
+                  id="status"
+                  formControlName="status"
+                  class="form-control"
+                  placeholder="Kullanıcı Şifre"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="">
+          <button class=" btn btn-update mx-3 " (click)="updateUser()">
+            Güncelle
+          </button>
+          <button class="btn  btn-delete" routerLink="/">X İptal</button>
+          <!-- <button class="btn btn-fill btn-danger mb-2 me-2 " routerLink="/users">İptal</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
