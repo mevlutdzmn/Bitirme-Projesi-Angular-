@@ -1,9 +1,10 @@
-export interface Request{
-    
+export interface RequestDetail{
     requestId:number;
-    categoryId:number;
+    categoryName:string;
     wallet:string;
     reasonRequest:string;
     collectedAid:number;
     images:string[];
+
+
 }

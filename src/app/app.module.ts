@@ -12,7 +12,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { RequestAddComponent } from './components/request-add/request-add.component';
-
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import {ToastrModule} from "ngx-toastr";
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -24,6 +24,7 @@ import { UserDeleteComponent } from './components/user-delete/user-delete.compon
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { UserChangepasswordComponent } from './components/user-changepassword/user-changepassword.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RequestAddImageComponent } from './components/request-add-image/request-add-image.component';
 
 
 
@@ -46,6 +47,7 @@ import { RegisterComponent } from './components/register/register.component';
     UserUpdateComponent,
     UserChangepasswordComponent,
     RegisterComponent,
+    RequestAddImageComponent,
 
 
   ],
@@ -61,7 +63,9 @@ import { RegisterComponent } from './components/register/register.component';
     })
   ],//http injectionlarını bütün http isteklerine enjekte etmiş oluyoruz
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

@@ -12,11 +12,13 @@ import { LoginGuard } from './guards/login.guard';
 import { UserDeleteComponent } from './components/user-delete/user-delete.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RequestAddImageComponent } from './components/request-add-image/request-add-image.component';
 
 const routes: Routes = [
   {path:"", pathMatch: 'full',component:RequestComponent},
   {path:"requests",component:RequestComponent},
   {path:"requests/category/:categoryId", component:RequestComponent},
+  {path:"requests/request/:requestId", component:RequestComponent},
   {path:"requests/add",component:RequestAddComponent,canActivate:[LoginGuard]},
   {path:"requests/update/:requestId",component:RequestUpdateComponent,canActivate:[LoginGuard]},
   {path:"requests/delete/:requestId",component:RequestDeleteComponent},
@@ -29,6 +31,8 @@ const routes: Routes = [
    {path:"users/user/changepassword/:Id" , component:UserChangepasswordComponent},
    {path:"users/delete/:Id", component:UserDeleteComponent},
    {path: "register", component:RegisterComponent },
+
+   {path:"requests/images/:requestId", component:RequestAddImageComponent},
    
 
 

@@ -1,36 +1,143 @@
-<nav class="navbar navbar-expand-lg bg-light">
+ <!-- <body>
+  <div class="hgNAV"> 
+ 
+ <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand "><img src="../../../assets/image/logo.png" width="50px" alt="" > <p class="logo-name" style=" display:inline-block;"> <b >Donate</b></p>  </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav .col-md-3 ms-md-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="#">Anasayfa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Hakkımızda</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="#">iletişim</a>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            üyelik
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/login">giriş yap</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="/register">üye ol </a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
+     
     </div>
+    
   </div>
-</nav>
+  
+</nav> 
+</div>
+</body> -->
+<body >
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+      <a class="navbar-brand "><img src="../../../assets/image/logo.png" width="50px" alt="" > <p class="logo-name" style=" display:inline-block;"> <b >Donate</b></p>  </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="">Ana Sayfa </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  "  aria-current="page" routerLink="/aboutus">Hakkımızda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="">İletişim </a>
+          </li>
+          
+  <li class="nav-item">
+    
+  </li>
+  
+         
+        </ul>
+  
+        <div *ngIf="!isAuthenticated()">
+          <form class="d-flex auth-btn">
+            <button
+              class="btn "
+              type="submit"
+              (click)="login()"
+            >
+              Giriş Yap
+            </button>
+            <button
+              class="btn  "
+              type="submit"
+              (click)="register()"
+            >
+              Üye Ol
+            </button>
+          </form>
+        </div>
+        <div class="dropdown" *ngIf="isAuthenticated()">
+          <a class=" userNameBox dropdown-toggle nav-link"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ authService.fullName }}
+          </a>
+         <ul *ngIf="authService.role=='admin'" class="dropdown-menu">
+            <li><a  (click)="userAdd()" class="dropdown-item" >Kullanıcı Ekle</a></li>
+            <li><a  (click)="changeUserPassword()" class="dropdown-item" >Şifrenizi Değitirin</a></li>
+              <li><a  routerLink="register" class="dropdown-item" >Kullanıcı Ekle</a></li>//sahte bir kullanıcı ekleme yeri oluştur  
+            <li><a  (click)="logout()" class="dropdown-item" >Çıkış Yap</a></li>
+          </ul>
+          <ul *ngIf="authService.role=='trainer'" class="dropdown-menu">
+          
+            <li><a  (click)="logout()" class="dropdown-item" >Çıkış Yap</a></li>
+          </ul>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="userProfile()" >Profile</a></li>
+            <li><a class="dropdown-item" (click)="userUpdate()" >Profile Düzenle</a></li>
+            <li><a  (click)="changeUserPassword()" class="dropdown-item" >Şifrenizi Değitirin</a></li>
+            <li><a  (click)="logout()" class="dropdown-item" >Çıkış Yap</a></li>
+          </ul>
+          <form class="d-flex" >
+      
+            <button type="button" class="btn btn-outline-success">cüzdan bağla</button>
+          
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container  main-text">
+    <div class="btn rounded-pill new-btn">New</div>
+    <hr>
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="my-4"> </h1>
+        <h5 class="my-3"></h5>
+        <p></p>
+      </div>
+      <div class="col-md-4 ">
+    
+      </div>
+    </div>
+    
+  </div>
+  <div class="container box  ">
+   <h5 class=" promise "> Bir mum, diğer mumu tutuşturmakla ışığından bir şey kaybetmez.</h5>
+   <p class="writer ">-Mevlana</p>
+  </div>
+   
+  </body>

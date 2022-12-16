@@ -29,10 +29,10 @@ export class RegisterComponent implements OnInit {
 
   createRegisterForm() {
     this.registerForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
@@ -43,7 +43,8 @@ export class RegisterComponent implements OnInit {
       this.authService.register(registerModel).subscribe(
         (response) => {
           this.toastrService.info(response.message);
-          //localStorage.setItem('token', response.data.token);
+          localStorage.setItem('token', response.data.token);
+          console.log(response.data.token)
           this.toastrService.success(response.message, 'Registered.');
         },
         (responseError) => {

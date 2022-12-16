@@ -20,7 +20,7 @@ export class RequestService {
 
   }
   getRequestsByCategory(categoryId:number):Observable<ListResponseModel<Request>>{
-    let newPath=this.apiUrl+"requests/getbycategory?categoryId="+categoryId
+    let newPath=this.apiUrl+'requests/getbycategory?categoryId='+categoryId
     return this.httpClient.get<ListResponseModel<Request>>(newPath);
 
   }
